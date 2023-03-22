@@ -11,9 +11,12 @@ export const counterSlice = createSlice({
       },
       decrement:(state)=>{
         state.value -=1
+      },
+      amount: (state,action)=>{   //girilen deger action'ın altındaki payload seklinde gelecek
+        state.value +=Number(action.payload)
       }
     }    // state'i guncelleyecek tanımlar. veri guncellemek ve update etmek ıcın burayı kullanıyoruz.
 })
 
-export const {increment, decrement}= counterSlice.actions;
+export const {increment, decrement,amount}= counterSlice.actions;
 export default counterSlice.reducer;   // dısa aktarılan bilgi kısmı 
